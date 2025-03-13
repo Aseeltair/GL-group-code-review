@@ -3,8 +3,7 @@ test_multiply.py
 
 Simple test cases for the multiply function using assert statements.
 """
-
-from multiply import multiply
+from solutions.multiply import multiply
 
 # Test positive numbers
 try:
