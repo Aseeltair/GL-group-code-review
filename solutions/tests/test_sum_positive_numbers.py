@@ -37,5 +37,6 @@ class TestSumPositiveNumbers(unittest.TestCase):
         with self.assertRaises(ValueError):
             sum_positive_numbers([1, 2, "three"])
 
+
 if __name__ == "__main__":
     unittest.main()

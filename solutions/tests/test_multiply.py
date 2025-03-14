@@ -7,6 +7,7 @@ Unit tests for the multiply function.
 import unittest
 from solutions.multiply import multiply
 
+
 class TestMultiply(unittest.TestCase):
     """Tests for multiply function."""
 
@@ -27,13 +28,14 @@ class TestMultiply(unittest.TestCase):
     def test_floats(self):
         """Should correctly multiply floating point numbers."""
         self.assertEqual(multiply(2.5, 2), 5.0)
-        
+
     def test_invalid_input_type(self):
         """Should raise TypeError if inputs are not numbers."""
         with self.assertRaises(TypeError):
             multiply("2", 3)
         with self.assertRaises(TypeError):
             multiply(2, [3])
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -6,6 +6,7 @@ This module provides a function to sum only the positive numbers in a list.
 
 from typing import List
 
+
 def sum_positive_numbers(numbers: List[float]) -> float:
     """
     Calculate the sum of positive numbers in a given list.
