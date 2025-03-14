@@ -4,6 +4,7 @@ multiply.py
 This module provides a function to multiply two numbers.
 """
 
+
 def multiply(a: float, b: float) -> float:
     """
     Multiplies two numbers and returns the result.
