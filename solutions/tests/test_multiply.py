@@ -1,61 +1,39 @@
 """
 test_multiply.py
 
-Simple test cases for the multiply function using assert statements.
+Unit tests for the multiply function.
 """
+
+import unittest
 from solutions.multiply import multiply
 
-# Test positive numbers
-try:
-    assert multiply(2, 3) == 6
-    print("Test Passed: multiply(2, 3) == 6")
-except AssertionError:
-    print("Test Failed: multiply(2, 3) should return 6")
+class TestMultiply(unittest.TestCase):
+    """Tests for multiply function."""
 
-# Test negative numbers
-try:
-    assert multiply(-4, 3) == -12
-    print("Test Passed: multiply(-4, 3) == -12")
-except AssertionError:
-    print("Test Failed: multiply(-4, 3) should return -12")
+    def test_positive_numbers(self):
+        """Should return the product of two positive numbers."""
+        self.assertEqual(multiply(2, 3), 6)
 
-try:
-    assert multiply(-2, -5) == 10
-    print("Test Passed: multiply(-2, -5) == 10")
-except AssertionError:
-    print("Test Failed: multiply(-2, -5) should return 10")
+    def test_negative_numbers(self):
+        """Should return the correct product for negative numbers."""
+        self.assertEqual(multiply(-4, 3), -12)
+        self.assertEqual(multiply(-2, -5), 10)
 
-# Test zero
-try:
-    assert multiply(0, 5) == 0
-    print("Test Passed: multiply(0, 5) == 0")
-except AssertionError:
-    print("Test Failed: multiply(0, 5) should return 0")
+    def test_zero(self):
+        """Should return 0 if either number is 0."""
+        self.assertEqual(multiply(0, 5), 0)
+        self.assertEqual(multiply(3, 0), 0)
 
-try:
-    assert multiply(3, 0) == 0
-    print("Test Passed: multiply(3, 0) == 0")
-except AssertionError:
-    print("Test Failed: multiply(3, 0) should return 0")
+    def test_floats(self):
+        """Should correctly multiply floating point numbers."""
+        self.assertEqual(multiply(2.5, 2), 5.0)
+        
+    def test_invalid_input_type(self):
+        """Should raise TypeError if inputs are not numbers."""
+        with self.assertRaises(TypeError):
+            multiply("2", 3)
+        with self.assertRaises(TypeError):
+            multiply(2, [3])
 
-# Test decimal numbers
-try:
-    assert multiply(2.5, 2) == 5.0
-    print("Test Passed: multiply(2.5, 2) == 5.0")
-except AssertionError:
-    print("Test Failed: multiply(2.5, 2) should return 5.0")
-
-# Test incorrect input
-try:
-    multiply("2", 3)
-    print("Test Failed: multiply('2', 3) should raise TypeError")
-except TypeError:
-    print("Test Passed: multiply('2', 3) raised TypeError as expected")
-
-try:
-    multiply(2, [3])
-    print("Test Failed: multiply(2, [3]) should raise TypeError")
-except TypeError:
-    print("Test Passed: multiply(2, [3]) raised TypeError as expected")
-
-print("All assert tests executed.")
+if __name__ == "__main__":
+    unittest.main()
