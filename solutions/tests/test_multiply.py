@@ -33,6 +33,5 @@ class TestMultiply(unittest.TestCase):
         with self.assertRaises(TypeError):
             multiply("2", 3)
 
-
 if __name__ == "__main__":
     unittest.main()
